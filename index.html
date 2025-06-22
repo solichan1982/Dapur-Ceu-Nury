@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="id" style="scroll-behavior: smooth;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dapur Ceu Nury - Spesial Baso Pentol</title>
+
+    <!-- Memuat Tailwind CSS untuk styling modern -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Memuat Google Fonts untuk tipografi yang lebih baik -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- Memuat ikon dari Lucide Icons -->
+    <script src="https://unpkg.com/lucide-react@latest/dist/lucide-react.js"></script>
+    <script src="https://unpkg.com/lucide-icons@latest/dist/lucide.min.js"></script>
+
+
+    <style>
+        /* Menggunakan font Poppins untuk body dan Playfair Display untuk judul */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #FFFDFA; /* Warna krem yang lebih cerah */
+            color: #54a6b1;
+        }
+        
+        h1, h2, h3 {
+             font-family: 'Playfair Display', serif;
+        }
+
+        /* Styling untuk transisi halus saat elemen muncul */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.6s ease-out;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom styling untuk slider gambar */
+        .slider-container {
+            overflow: hidden;
+            border-radius: 0.5rem;
+        }
+
+        .slider-wrapper {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slider-item {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Efek bayangan yang lebih lembut */
+        .soft-shadow {
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+        .soft-shadow-hover:hover {
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+            transform: translateY(-4px);
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-[#FFFDFA]">
+
+    <!-- ===== HEADER & NAVIGASI ===== -->
+    <header class="bg-[#8B4513] sticky top-0 z-50 text-white soft-shadow">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <!-- Logo dan Nama Website -->
+            <a href="#beranda" class="flex items-center space-x-3">
+    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center overflow-hidden">
+        <!-- Ganti src di bawah ini dengan nama file logo Anda -->
+        <img src="asset/Screenshot 2025-06-22 160612.png" alt="Logo Dapur Ceu Nury" class="w-10 h-10 object-contain">
+    </div>
+    <span class="text-xl font-bold tracking-wider" style="font-family: 'Poppins', sans-serif;">Dapur Ceu Nury</span>
+</a>
+
+            <!-- Navigasi Desktop -->
+            <nav class="hidden md:flex space-x-8">
+                <a href="#beranda" class="hover:text-yellow-300 transition-colors">Beranda</a>
+                <a href="#varian" class="hover:text-yellow-300 transition-colors">Varian Pentol</a>
+                <a href="#tentang" class="hover:text-yellow-300 transition-colors">Tentang Kami</a>
+            </nav>
+
+            <!-- Tombol Menu Mobile -->
+            <div class="md:hidden">
+                <button id="menu-btn" class="text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Menu Mobile (Sidebar) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-[#8B4513] bg-opacity-95 absolute w-full">
+            <a href="#beranda" class="block text-center py-3 text-white hover:bg-[#A0522D] transition-colors">Beranda</a>
+            <a href="#varian" class="block text-center py-3 text-white hover:bg-[#A0522D] transition-colors">Varian Pentol</a>
+            <a href="#tentang" class="block text-center py-3 text-white hover:bg-[#A0522D] transition-colors">Tentang Kami</a>
+            <a href="https://wa.me/6281234567890?text=Halo%20Dapur%20Ceu%20Nury,%20saya%20tertarik%20untuk%20pesan%20katering." target="_blank" class="block text-center py-3 text-white font-bold bg-orange-600 hover:bg-orange-700 transition-colors">Info Pesanan (WA)</a>
+        </div>
+    </header>
+
+    <!-- ===== KONTEN UTAMA ===== -->
+    <main>
+        <!-- Bagian Beranda (Hero Section) -->
+        <section id="beranda" class="container mx-auto px-6 py-16 md:py-24 text-center reveal">
+            <h1 class="text-4xl md:text-6xl font-bold text-[#A0522D] mb-4">Kenikmatan Baso Pentol Autentik</h1>
+            <p class="text-lg md:text-xl max-w-3xl mx-auto text-gray-600">
+                Resep warisan keluarga yang menyatukan kelezatan, kualitas, dan kehangatan dalam setiap gigitan. Selamat datang di Dapur Ceu Nury!
+            </p>
+            <img src="asset/11.webp" alt="Gambar Ilustrasi Baso Pentol" class="mt-10 mx-auto rounded-lg soft-shadow">
+        </section>
+
+        <!-- Bagian Varian Pentol -->
+        <section id="varian" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12 reveal">
+                    <h2 class="text-3xl md:text-4xl font-bold text-[#A0522D]">Varian Pentol Juara</h2>
+                    <p class="mt-2 text-gray-600">Setiap varian punya cerita dan rasa yang unik. Geser gambar untuk melihat lebih banyak.</p>
+                </div>
+
+                <!-- Grid untuk Varian Pentol -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+                    
+                    <!-- Kolom Varian 1: Pentol Original -->
+                    <div class="bg-[#FFFDFA] p-6 rounded-lg soft-shadow-hover reveal">
+                        <div class="slider" data-id="1">
+                            <div class="slider-container relative">
+                                <div class="slider-wrapper">
+                                    <div class="slider-item"><img src="asset/bbs.jpg" alt="Pentol Original 1" class="w-full h-48 object-cover rounded-md"></div>
+                                    <div class="slider-item"><img src="asset/ssd.jpg" alt="Pentol Original 2" class="w-full h-48 object-cover rounded-md"></div>
+                                    <div class="slider-item"><img src="asset/fdf.jpg" alt="Pentol Original 2" class="w-full h-48 object-cover rounded-md"></div>
+                                    <div class="slider-item"><img src="asset/swomu.jpg" alt="Pentol Original 2" class="w-full h-48 object-cover rounded-md"></div>
+                                </div>
+                                <button class="slider-prev absolute top-1/2 left-2 -translate-y-1/2 bg-white/70 hover:bg-white p-2 rounded-full "><i data-lucide="chevron-left"></i></button>
+                                <button class="slider-next absolute top-1/2 right-2 -translate-y-1/2 bg-white/70 hover:bg-white p-2 rounded-full"><i data-lucide="chevron-right"></i></button>
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold mt-4 text-[#A0522D]">Pentol Original</h3>
+                        <p class="mt-2 text-gray-600">Rasa daging sapi asli yang gurih dan juicy. Kenikmatan klasik yang tak pernah salah.</p>
+                    </div>
+
+                    <!-- Kolom Varian 2: Pentol Urat -->
+                    <div class="bg-[#FFFDFA] p-6 rounded-lg soft-shadow-hover reveal">
+                         <div class="slider" data-id="2">
+                            <div class="slider-container relative">
+                                <div class="slider-wrapper">
+                                    <div class="slider-item"><img src="asset/basopentol.jpg" alt="Pentol Urat 1" class="w-full h-48 object-cover rounded-md"></div>
+                                    <div class="slider-item"><img src="asset/fdf.jpg" alt="Pentol Urat 2" class="w-full h-48 object-cover rounded-md"></div>
+                                    <div class="slider-item"><img src="asset/fdf.jpg" alt="Pentol Urat 2" class="w-full h-48 object-cover rounded-md"></div>
+                                    <div class="slider-item"><img src="asset/fdf.jpg" alt="Pentol Urat 2" class="w-full h-48 object-cover rounded-md"></div>
+                                    <div class="slider-item"><img src="asset/ds.jpg" alt="Pentol Urat 2" class="w-full h-48 object-cover rounded-md"></div>
+                                </div>
+                                <button class="slider-prev absolute top-1/2 left-2 -translate-y-1/2 bg-white/70 hover:bg-white p-2 rounded-full"><i data-lucide="chevron-left"></i></button>
+                                <button class="slider-next absolute top-1/2 right-2 -translate-y-1/2 bg-white/70 hover:bg-white p-2 rounded-full"><i data-lucide="chevron-right"></i></button>
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold mt-4 text-[#A0522D]">Pentol Jontor</h3>
+                        <p class="mt-2 text-gray-600">"Manjakan lidahmu dengan Pentol Jontor andalan kami! Dibuat dari adonan daging sapi pilihan dan tepung tapioka berkualitas, menghasilkan tekstur pentol yang kenyal sempurna dan kaya rasa.
+
+Yang membuatnya istimewa adalah siraman Sambal Jontor kami, yang diracik dari ulekan cabe rawit segar pilihan dan bumbu rempah autentik. Pedasnya yang menyengat dan meresap hingga ke dalam, memberikan sensasi "jontor" yang menantang namun nikmat.
+
+Setiap porsi disajikan panas, siap membuatmu keringetan dan ketagihan"</p>
+                    </div>
+
+                    <!-- Kolom Varian 3: Pentol Pedas Mercon -->
+                    <div class="bg-[#FFFDFA] p-6 rounded-lg soft-shadow-hover reveal">
+                         <div class="slider" data-id="3">
+                            <div class="slider-container relative">
+                                <div class="slider-wrapper">
+                                    <div class="slider-item"><img src="https://placehold.co/600x400/EF4444/FFFFFF?text=Mercon+Meledak!" alt="Pentol Mercon 1" class="w-full h-48 object-cover rounded-md"></div>
+                                    <div class="slider-item"><img src="https://placehold.co/600x400/F87171/FFFFFF?text=Pecinta+Pedas" alt="Pentol Mercon 2" class="w-full h-48 object-cover rounded-md"></div>
+                                    <div class="slider-item"><img src="https://placehold.co/600x400/F87171/FFFFFF?text=Pecinta+Pedas" alt="Pentol Mercon 2" class="w-full h-48 object-cover rounded-md"></div>
+                                    <div class="slider-item"><img src="https://placehold.co/600x400/F87171/FFFFFF?text=Pecinta+Pedas" alt="Pentol Mercon 2" class="w-full h-48 object-cover rounded-md"></div>
+                                    <div class="slider-item"><img src="https://placehold.co/600x400/F87171/FFFFFF?text=Pecinta+Pedas" alt="Pentol Mercon 2" class="w-full h-48 object-cover rounded-md"></div>
+                                </div>
+                                <button class="slider-prev absolute top-1/2 left-2 -translate-y-1/2 bg-white/70 hover:bg-white p-2 rounded-full"><i data-lucide="chevron-left"></i></button>
+                                <button class="slider-next absolute top-1/2 right-2 -translate-y-1/2 bg-white/70 hover:bg-white p-2 rounded-full"><i data-lucide="chevron-right"></i></button>
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold mt-4 text-[#A0522D]">Pangsit Jontor</h3>
+                        <p class="mt-2 text-gray-600"> "Rasakan sensasi ganda dalam satu gigitan! Pangsit goreng dengan kulit super renyah dan kriuk, menyembunyikan isian ayam gurih yang melimpah di dalamnya. Tidak berhenti di situ, pangsit ini disajikan dengan cocolan atau siraman saus Jontor yang pedasnya nendang abis!
+
+Sempurna untuk jadi camilan penantang maut atau teman makan nasi. Siap-siap dengerin suara kriuknya yang bersahutan dengan sensasi pedasnya" </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Bagian Tentang Kami & Filosofi -->
+        <section id="tentang" class="py-16 md:py-24">
+            <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+                <div class="reveal">
+                    <img src="asset/Screenshot 2025-06-22 160457.png" alt="Filosofi Dapur Ceu Nury" class="rounded-lg soft-shadow w-full h-auto">
+                </div>
+                <div class="reveal">
+                    <h2 class="text-3xl md:text-4xl font-bold text-[#A0522D] mb-4">Filosofi di Balik Pentol Kami</h2>
+                    <p class="mb-4 text-gray-600">Bagi kami di Dapur Ceu Nury, pentol bukan sekadar jajanan. Ia adalah simbol kebersamaan dan kehangatan. Seperti bola yang menyatukan, setiap pentol dibuat untuk membawa kebahagiaan dan menyatukan orang dalam momen-momen sederhana.</p>
+                    <h3 class="text-2xl font-bold text-[#A0522D] mt-8 mb-3">Sekilas Sejarah Bakso</h3>
+                    <p class="text-gray-600">Bakso, yang menjadi cikal bakal pentol, dipercaya berasal dari Tiongkok, dibawa oleh para pedagang pada abad ke-17. Namanya berasal dari kata "Bak-So" dalam dialek Hokkien yang berarti "daging giling". Seiring waktu, hidangan ini berakulturasi dengan budaya Indonesia, menciptakan berbagai varian lezat seperti pentol yang kita kenal dan cintai saat ini.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- ===== FOOTER ===== -->
+    <footer class="bg-[#4A3728] text-white mt-16">
+        <div class="container mx-auto py-8 px-6 text-center">
+            <p>&copy; 2025 Dapur Ceu Nury. Hak Cipta Dilindungi.</p>
+            <p class="text-sm text-gray-400 mt-2">Dibuat dengan cinta di Indonesia</p>
+            <p class="text-sm text-gray-400 mt-2">Buat Website Anda Contact Person 089663363038</p>
+        </div>
+    </footer>
+    
+    <!-- ===== TOMBOL WHATSAPP MELAYANG ===== -->
+    <a href="https://wa.me/+62895351640402?text=Halo%20Dapur%20Ceu%20Nury,%20saya%20tertarik%20untuk%20pesan%20katering." target="_blank" 
+       class="fixed bottom-20 md:bottom-6 right-6 bg-orange-600 hover:bg-orange-700 text-white p-4 rounded-full shadow-lg flex items-center space-x-3 transition-all transform hover:scale-110 z-40">
+       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><path d="M19.04,4.96C17.18,3.1,14.69,2,12,2S6.82,3.1,4.96,4.96C3.1,6.82,2,9.31,2,12c0,1.74.45,3.39,1.23,4.86L2,22l5.14-1.23C8.61,21.55,10.26,22,12,22h0c5.52,0,10-4.48,10-10C22,9.31,20.9,6.82,19.04,4.96z M12,20c-1.55,0-3.03-0.46-4.29-1.26L7.2,18.4l-3.3,0.79l0.8-3.23l-0.34-0.54C3.34,14.17,3,13.11,3,12c0-4.97,4.03-9,9-9s9,4.03,9,9S16.97,20,12,20z M16.57,14.46c-0.21-0.11-1.25-0.62-1.44-0.69c-0.2-0.07-0.34-0.11-0.49,0.11c-0.15,0.22-0.54,0.69-0.67,0.83c-0.12,0.14-0.24,0.16-0.45,0.05c-0.21-0.11-0.89-0.33-1.69-1.04c-0.63-0.55-1.05-1.23-1.17-1.44c-0.12-0.22-0.01-0.34,0.1-0.45c0.1-0.1,0.22-0.26,0.33-0.39c0.11-0.12,0.14-0.22,0.22-0.36c0.07-0.14,0.04-0.26-0.01-0.36c-0.05-0.11-0.49-1.18-0.67-1.61c-0.18-0.42-0.36-0.36-0.49-0.37c-0.12-0.01-0.26-0.01-0.4-0.01c-0.15,0-0.38,0.05-0.57,0.26c-0.2,0.22-0.76,0.75-0.76,1.82c0,1.08,0.78,2.11,0.89,2.25c0.11,0.14,1.54,2.35,3.74,3.29c0.53,0.23,0.94,0.36,1.26,0.46c0.55,0.17,1.05,0.15,1.44,0.09c0.43-0.06,1.25-0.51,1.42-1c0.17-0.49,0.17-0.91,0.12-1c-0.05-0.1-0.2-0.16-0.4-0.26H16.57z"/></svg>
+       <span class="hidden md:inline font-semibold">Info & Katering</span>
+    </a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // === LOGIKA UNTUK MENU MOBILE ===
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Menutup menu mobile saat link di-klik
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // === LOGIKA UNTUK SLIDER GAMBAR ===
+            const sliders = document.querySelectorAll('.slider');
+            sliders.forEach(slider => {
+                const wrapper = slider.querySelector('.slider-wrapper');
+                const prevBtn = slider.querySelector('.slider-prev');
+                const nextBtn = slider.querySelector('.slider-next');
+                const items = slider.querySelectorAll('.slider-item');
+                let currentIndex = 0;
+                const totalItems = items.length;
+
+                function updateSlider() {
+                    wrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
+                }
+
+                prevBtn.addEventListener('click', () => {
+                    currentIndex = (currentIndex > 0) ? currentIndex - 1 : totalItems - 1;
+                    updateSlider();
+                });
+
+                nextBtn.addEventListener('click', () => {
+                    currentIndex = (currentIndex < totalItems - 1) ? currentIndex + 1 : 0;
+                    updateSlider();
+                });
+            });
+
+            // === LOGIKA UNTUK ANIMASI SAAT SCROLL (Intersection Observer) ===
+            const revealElements = document.querySelectorAll('.reveal');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            revealElements.forEach(el => {
+                observer.observe(el);
+            });
+            
+            // Memanggil Lucide Icons
+            lucide.createIcons();
+        });
+    </script>
+</body>
+</html>
